@@ -1,0 +1,186 @@
+.cards-container {
+    padding: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1140px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    width: 300px;
+    height: 415px;
+    position: relative;
+    margin: 20px 30px;
+    border: none;
+}
+
+.card-info {
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 10px;
+    z-index: 1;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    width: 320px;
+    height: 435px;
+    border: 2px solid #c2902c;
+    top: -10px;
+    left: -10px;
+    transition: .2s;
+    z-index: -1;
+    border-radius: 4px;
+    background: #fff;
+}
+
+.card:hover::before{
+    width: 304px;
+    height: 418.5px;
+    left: -2px;
+    top: -2px;
+    border-color: #C28F2C;
+}
+
+.nickname-container {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1.5px solid #C28F2C;
+    margin-bottom: 10px;
+}
+
+.nickname {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.server {
+    text-align: right;
+    font-weight: 600;
+}
+
+.fio {
+    font-weight: 500;
+    margin-bottom: 0px;
+}
+
+.label {
+    text-align: center;
+    margin: 5px 0;
+}
+
+.roles {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    border-top: 1.5px solid #C28F2C;
+    padding-top: 2px;
+    /* flex-direction: column; */
+}
+
+.roles img {
+    width: 60px;
+    height: 60px;
+}
+
+.roles img:not(:first-child) {
+    margin-left: 25px;
+}
+
+
+.champions {
+    display: flex;
+    flex-direction: column;
+    padding: 2px;
+    /* justify-content: space-between; */
+    align-items: center;
+    margin-left: 15px;
+}
+
+.champions img {
+    width: 70px;
+}
+
+.champions img:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.bottom-btns {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.more-btn {
+    background: #fff;
+}
+
+.more-btn:hover {
+    background: #C28F2C;
+    color: #fff;
+}
+
+.card-plate-container {
+    position: absolute;
+    width: 15%;
+    display: flex;
+    flex-direction: row-reverse;
+    /* flex-direction: column;  Для вертикального вида иконок
+    margin-top: -15%; */
+    margin-left: 95%;
+    margin-top: -13%;
+    transition: .2s;
+}
+
+.card-plate:not(:last-child) {
+    margin-left: 10px;
+}
+
+/* Тоже надо врубить для вертикального вида иконок (верхнее нужно убрать)
+   .card-plate {
+    margin-top: 10px;
+} */
+
+.rank {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+}
+
+.rank-description {
+    font-size: 12px;
+}
+
+.rank-img {
+    /* width: 180px; */
+    height: 210px;
+}
+
+.card-info-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card:hover .card-plate-container{
+    margin-top: -11%;
+    margin-left: 92%;
+}
+
+.card-plate {
+    transition: .2s;
+}
+
+.card:hover .card-plate {
+    transform: scale(0.92);
+}
+
+.card:hover .card-plate:not(:last-child) {
+    margin-left: 8px;
+}
+

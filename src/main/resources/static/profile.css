@@ -1,0 +1,181 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.player-info {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin-right: 15px;
+}
+
+.player-info-container {
+    background: #fff;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.player-feedback-container {
+    height: 100%;
+}
+
+.coach-feedback {
+    margin-top: 20px;
+}
+
+.nickname-container {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.title {
+    border-bottom: 1px solid #C28F2C;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.player-characters {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.player-stats {
+    padding: 20px;
+    background: #fff;
+}
+
+.character {
+    border: 2px solid #C28F2C;
+    padding: 10px;
+    border-radius: 3px;
+    margin-right: 20px;
+}
+
+.subtitle {
+    font-weight: 600;
+}
+
+.character:last-child {
+    margin-right: 0;
+}
+
+.character-img {
+    width: 250px;
+    height: 140px;
+}
+
+.next-rank {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 100px;
+    align-items: center;
+}
+
+.next-rank img {
+    width: 150px;
+    margin-bottom: 10px;
+}
+
+.rank {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 600;
+}
+
+.rank-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+}
+
+.next-rank-chevron {
+    opacity: .8;
+    width: 80px;
+}
+
+.rank-card {
+    background: #fff;
+    display: flex;
+    width: 300px;
+    height: 150px;
+    padding: 15px;
+    border: 2px solid #C28F2C;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    margin: 13px;
+}
+
+
+
+
+.progress-bar-vertical {
+    width: 12%;
+    min-height: 100%;
+    margin-right: 20px;
+    float: left;
+    display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+    display: -ms-flexbox;  /* TWEENER - IE 10 */
+    display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+    display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
+    align-items: flex-end;
+    -webkit-align-items: flex-end; /* Safari 7.0+ */
+    font-weight: bold;
+}
+
+.progress-bar-vertical .progress-bar {
+    width: 100%;
+    height: 0;
+    -webkit-transition: height 0.6s ease;
+    -o-transition: height 0.6s ease;
+    transition: height 0.6s ease;
+}
+
+.rank-text {
+    padding-left: 10px;
+    margin-left: 5px;
+}
+
+.rank-title {
+    font-weight: 600;
+}
+
+footer {
+    bottom: -250px;
+}
+
+.roles {
+    text-align: center;
+    margin-top: 4%;
+    border-top: 1px solid #C28F2C;
+}
+
+img.roles-item {
+    width: 20%;
+    margin-top: 2%;
+    margin-left: 8%;
+    margin-right: 8%;
+}
+
+.plates {
+    margin-top: 8%;
+}
+
+.plates-container {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+img.plates-item {
+    width: 20%;
+    margin-top: 2%;
+    margin-left: 8%;
+    margin-right: 8%;
+}

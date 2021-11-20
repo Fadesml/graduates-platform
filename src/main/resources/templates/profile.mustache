@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <!-- Иконка вкладки в браузере -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <!-- Bootsrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Original CSS -->
+    <link rel="stylesheet" href="http://localhost:8080/style.css">
+    <link rel="stylesheet" href="http://localhost:8080/profile.css">
+</head>
+<body>
+    <header>
+        <a class="header-title" href="http://localhost:8080/">Graduates Platform</a>
+        <form class="header-search" action="POST">
+            <input class="search-input" type="text" placeholder="Поиск" name="search">
+            <button class="search-submit" type="submit">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </button>
+        </form>
+    </header>
+    <section class="container">
+        {{#profile}}
+        <div class="player-info">
+            <div class="player-info-container">
+                <div class="nickname-container title">
+                    <span class="nickname">{{name}}</span>
+                    <span class="server">#{{server}}</span>
+                </div>
+                <div class="full-name">
+                    <span>Full name:</span>
+                    <span class="fio">{{fullName}}</span>
+                </div>
+                <div class="country">
+                    <span>From:</span>
+                    <span>{{country}}, {{city}}</span>
+                </div>
+                <div class="contact">
+                    <span>EMail:</span>
+                    <span>{{email}}</span>
+                </div>
+                <div class="roles">
+                    <img src="http://localhost:8080/img/roles/{{mainRole}}.png" alt="{{mainRole}}" title="{{mainRole}}" class="roles-item">
+                    <img src="http://localhost:8080/img/roles/{{secondRole}}.png" alt="{{secondRole}}" title="{{secondRole}}" class="roles-item">
+                </div>
+            </div>
+            <div class="player-info-container player-feedback-container">
+                <div class="feedback graduate-feedback">
+                    <h1 class="feedback title">Feedback</h1>
+                    <p class="feedback-text">
+                        {{studentFeedback}}
+                    </p>
+                </div><div class="feedback coach-feedback">
+                    <h1 class="feedback title">Coach Feedback</h1>
+                    <p class="feedback-text">
+                        {{coachFeedback}}
+                    </p>
+                </div>
+                <div class="plates">
+                    <h1 class="title">Plates</h1>
+                    <div class="plates-container">
+                        {{#plates}}
+                            <img src="http://localhost:8080/img/plates/{{.}}.png" alt="{{.}}" title="{{.}}" class="plates-item">
+                        {{/plates}}
+
+                    </div>
+                </div>
+            </div>
+                <a class="btn opgg-btn" href="{{opgg}}">
+                    <img src="http://localhost:8080/img/opgg.svg" alt="OPGG">
+                </a>
+            </div>
+        </div>
+        <div class="player-stats">
+            <h1 class="title">Characters:</h1>
+            <div class="player-characters">
+            {{#champions}}
+                <div class="character">
+                    <img class="character-img" src="http://localhost:8080/img/characters/{{name}}.jpg" alt="{{name}}">
+                    <div class="name">
+                        <span class="subtitle">Character name:</span>
+                        <span>{{name}}</span>
+                    </div>
+                    <div class="KDA">
+                        <span class="subtitle">KDA</span>
+                        <span>{{averageKDA}}</span>
+                    </div>
+                    <div class="CS">
+                        <span class="subtitle">CS:</span>
+                        <span>{{averageCS}} ({{averageCSPerMinute}})</span>
+                    </div>
+                    <div class="games">
+                        <span class="subtitle">Games:</span>
+                        <span>{{summaryGames}}</span>
+                    </div>
+                </div>
+            {{/champions}}
+            </div>
+
+            <div class="player-rank">
+                <h1 class="title">Rank:</h1>
+                <div class="next-rank">
+                    <div class="rank">
+                        <img src="http://localhost:8080/img/rank/{{startingRank}}.png" alt="{{startingRank}}">
+                        <p>{{startingRank}} {{startingDivision}} {{startingLP}}</p>
+                    </div>
+                    <div class="next-rank-chevron">
+                        <img src="http://localhost:8080/img/rank/chevron.svg" alt="next">
+                    </div>
+                    <div class="rank">
+                        <img src="http://localhost:8080/img/rank/{{finalRank}}.png" alt="{{startingRank}}">
+                        <p>{{finalRank}} {{finalDivision}} {{finalLP}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="rank-container container">
+        {{#skills}}
+            <div class="rank-card">
+                <div class="progress progress-bar-vertical">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="{{percent}}" aria-valuemin="0" aria-valuemax="100" style="height: {{percent}}%;">
+                        <span class="sr-only">{{percent}}</span>
+                    </div>
+                </div>
+                <div class="rank-text">
+                    <p class="rank-title">{{name}}</p>
+                    <p class="rank-subtitle">{{description}}</p>
+                </div>
+            </div>
+        {{/skills}}
+    {{/profile}}
+    </section>
+    <footer>
+        <div class="footer-contacts">
+            <p class="contact-number">+7(999)999-99-99</p>
+            <p class="contact-email">graduates@platform.ru</p>
+        </div>
+    </footer>
+    <!-- Bootsrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</body>
+</html>
