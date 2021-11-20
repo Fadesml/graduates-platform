@@ -16,6 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 public class MainController {
     private final ProfileService profileService;
+    private static final String appHost = "https://graduates-platform.herokuapp.com";
 
     @GetMapping
     public String displayMain(@RequestParam(required = false, defaultValue = "0") Integer page,
@@ -24,15 +25,19 @@ public class MainController {
                               Model model) {
         List<GraduateShortPreview> graduates = profileService.getGraduatesShortPreview(page, size, preGraduateName);
 
+        model.addAttribute("host", appHost);
+
         if (graduates.isEmpty()) {
             throw new NotFoundException("Graduates not found!");
         }
         model.addAttribute("graduates", graduates);
+
         return "main";
     }
 
     @GetMapping("/profile/{name}")
     public String displayProfile(@PathVariable String name, Model model) {
+        model.addAttribute("host", appHost);
         model.addAttribute("profile", profileService.getProfile(name));
 
         return "profile";

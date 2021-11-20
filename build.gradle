@@ -29,6 +29,25 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
+jar {
+    manifest {
+        attributes "Main-Class": "ru.fadesml.graduates.GraduatesApplication"
+    }
+
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+sourceCompatibility = '1.8'
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+if (!hasProperty('mainClass')) {
+    ext.mainClass = 'ru.indieplay.webapi.WebApiApplication'
+}
+
+
+
 test {
     useJUnitPlatform()
 }
