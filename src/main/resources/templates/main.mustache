@@ -4,67 +4,73 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Graduates Platform</title>
     <!-- Иконка вкладки в браузере -->
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <!-- Bootsrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- Original CSS -->
     <link rel="stylesheet" href="{{host}}/style.css">
     <link rel="stylesheet" href="{{host}}/index.css">
 </head>
 <body>
-    <header>
-        <a class="header-title" href="{{host}}/">Graduates Platform</a>
-        <form class="header-search" onsubmit="return search()">
-            <input class="search-input" type="text" placeholder="Поиск" id="preGraduateName" name="preGraduateName">
-            <button class="search-submit" type="submit">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-            </button>
-        </form>
-    </header>
-    <section class="cards-container">
-        {{#graduates}}
-            <div class="card">
-                <div class="card-plate-container">
-                    {{#plates}}
-                        <img class="card-plate" src="{{host}}/img/plates/{{.}}.png" alt="{{.}}">
-                    {{/plates}}
+<header>
+    <a class="header-title" href="{{host}}/">Graduates Platform</a>
+    <form class="header-search" onsubmit="return search()">
+        <input class="search-input" type="text" placeholder="Поиск" id="preGraduateName" name="preGraduateName">
+        <button class="search-submit" type="submit">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff"
+                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+        </button>
+    </form>
+</header>
+<section class="cards-container">
+    {{#graduates}}
+        <div class="card">
+            <div class="card-plate-container">
+                {{#plates}}
+                    <img class="card-plate" src="{{host}}/img/plates/{{.}}.png" alt="{{.}}">
+                {{/plates}}
+            </div>
+            <div class="card-info">
+                <div class="nickname-container">
+                    <span class="nickname">{{name}}</span>
+                    <span class="server">#{{server}}</span>
                 </div>
-                <div class="card-info">
-                    <div class="nickname-container">
-                        <span class="nickname">{{name}}</span>
-                        <span class="server">#{{server}}</span>
+                <div class="card-info-container">
+                    <div class="champions">
+                        {{#champions}}
+                            <img src="{{host}}/img/champions/{{.}}.png" alt="{{.}}">
+                        {{/champions}}
                     </div>
-                    <div class="card-info-container">
-                        <div class="champions">
-                            {{#champions}}
-                                <img src="{{host}}/img/champions/{{.}}.png" alt="{{.}}">
-                            {{/champions}}
-                        </div>
-                        <div class="rank">
-                            <img class="rank-img" src="{{host}}/img/rank/{{finalRank}}.png" alt="{{finalRank}}" title="{{finalRank}}">
-                            <p class="label rank-description">{{finalRank}} {{finalDivision}} {{finalLP}}</p>
-                        </div>
-                    </div>
-                    
-                    <div class="roles">
-                        <img src="{{host}}/img/roles/{{mainRole}}.png" alt="" title="{{mainRole}}">
-                        <img src="{{host}}/img/roles/{{secondRole}}.png" alt="" title="{{secondRole}}">
+                    <div class="rank">
+                        <img class="rank-img" src="{{host}}/img/rank/{{finalRank}}.png" alt="{{finalRank}}"
+                             title="{{finalRank}}">
+                        <p class="label rank-description">{{finalRank}} {{finalDivision}} {{finalLP}}</p>
                     </div>
                 </div>
-                <div class="bottom-btns">
-                    <a class="btn opgg-btn" href="{{opgg}}">
-                        <img src="{{host}}/img/opgg.svg" alt="OPGG">
-                    </a>
-                    <a class="btn more-btn" href="{{host}}/profile/{{name}}">
-                        Подробнее
-                    </a>
+
+                <div class="roles">
+                    <img src="{{host}}/img/roles/{{mainRole}}.png" alt="" title="{{mainRole}}">
+                    <img src="{{host}}/img/roles/{{secondRole}}.png" alt="" title="{{secondRole}}">
                 </div>
             </div>
-        {{/graduates}}
-    </section>
-    <!-- Пагинация -->
+            <div class="bottom-btns">
+                <a class="btn opgg-btn" href="{{opgg}}">
+                    <img src="{{host}}/img/opgg.svg" alt="OPGG">
+                </a>
+                <a class="btn more-btn" href="{{host}}/profile/{{name}}">
+                    Подробнее
+                </a>
+            </div>
+        </div>
+    {{/graduates}}
+</section>
+<!-- Пагинация -->
 <!--    <nav>-->
 <!--        <ul class="pagination">-->
 <!--            <li class="page-item disabled">-->
@@ -84,15 +90,19 @@
 <!--            </li>-->
 <!--        </ul>-->
 <!--    </nav>-->
-    <footer>
-        <div class="footer-contacts">
-            <p class="contact-number">+7 (999) 999-99-99</p>
-            <p class="contact-email">example@email.com</p>
-        </div>
-    </footer>
-    <script src="{{host}}/scripts/MenuSearch.js"></script>
-    <!-- Bootsrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+<footer>
+    <div class="footer-contacts">
+        <p class="contact-number">+7 (999) 999-99-99</p>
+        <p class="contact-email">example@email.com</p>
+    </div>
+</footer>
+<script src="{{host}}/scripts/MenuSearch.js"></script>
+<!-- Bootsrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
 </body>
 </html>
