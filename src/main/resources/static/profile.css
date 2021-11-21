@@ -21,6 +21,10 @@
     height: 100%;
 }
 
+.country {
+    height: 20px;
+}
+
 .coach-feedback {
     margin-top: 20px;
 }

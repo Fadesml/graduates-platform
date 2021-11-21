@@ -35,12 +35,15 @@ public class GraduateShortPreview {
 
     private List<String> champions;
 
+    private String country;
+
     private String opgg;
 
     public GraduateShortPreview(Graduate graduate, List<String> champions) {
         this.name = graduate.getName();
         this.fullName = graduate.getFullName();
         this.plates = graduate.getPlates().stream().map(Plate::getName).collect(Collectors.toList());
+        this.country = graduate.getCountry();
 
         this.server = EServer.get(graduate.getServer());
         this.mainRole = ERole.get(graduate.getMainRole());

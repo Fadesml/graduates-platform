@@ -48,10 +48,6 @@ public class Graduate {
     @Column(nullable = false)
     private String country;
 
-    private Boolean isProPlayer;
-
-    private String city;
-
     private String studentFeedback;
 
     @Column(nullable = false)

@@ -17,8 +17,8 @@
 <body>
 <header>
     <a class="header-title" href="{{host}}/">Graduates Platform</a>
-    <form class="header-search" onsubmit="return search()">
-        <input class="search-input" type="text" placeholder="Поиск" id="preGraduateName" name="preGraduateName">
+    <form class="header-search" action="{{host}}" method="GET">
+        <input class="search-input" type="text" placeholder="Поиск" name="preGraduateName">
         <button class="search-submit" type="submit">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff"
                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
@@ -33,6 +33,7 @@
         <div class="player-info">
             <div class="player-info-container">
                 <div class="nickname-container title">
+                    <span><img class="country" src="{{host}}/img/country/{{country}}.png"></span>
                     <span class="nickname">{{name}}</span>
                     <span class="server">#{{server}}</span>
                 </div>
@@ -41,8 +42,8 @@
                     <span class="fio">{{fullName}}</span>
                 </div>
                 <div class="country">
-                    <span>Проживает:</span>
-                    <span>{{country}}, {{city}}</span>
+                    <span>Страна:</span>
+                    <span>{{country}}</span>
                 </div>
                 <div class="contact">
                     <span>Почта:</span>
@@ -88,7 +89,7 @@
             <div class="player-characters">
                 {{#champions}}
                     <div class="character">
-                        <img class="character-img" src="{{host}}/img/characters/{{name}}.jpg" alt="{{name}}">
+                        <img class="character-img" src="{{host}}/img/champions/background/{{name}}.jpg" alt="{{name}}">
                         <div class="name">
                             <span class="subtitle">Наименование:</span>
                             <span>{{name}}</span>
@@ -114,14 +115,14 @@
                 <div class="next-rank">
                     <div class="rank">
                         <img src="{{host}}/img/rank/{{startingRank}}.png" alt="{{startingRank}}">
-                        <p>{{startingRank}} {{startingDivision}} {{startingLP}}</p>
+                        <p>{{startingRank}} {{startingDivision}} {{startingLP}}lp</p>
                     </div>
                     <div class="next-rank-chevron">
                         <img src="{{host}}/img/rank/chevron.svg" alt="next">
                     </div>
                     <div class="rank">
                         <img src="{{host}}/img/rank/{{finalRank}}.png" alt="{{startingRank}}">
-                        <p>{{finalRank}} {{finalDivision}} {{finalLP}}</p>
+                        <p>{{finalRank}} {{finalDivision}} {{finalLP}}lp</p>
                     </div>
                 </div>
             </div>
@@ -150,7 +151,6 @@
         <p class="contact-email">example@email.com</p>
     </div>
 </footer>
-<script src="{{host}}/scripts/MenuSearch.js"></script>
 <!-- Bootsrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
         integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"

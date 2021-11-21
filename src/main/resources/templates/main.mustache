@@ -17,8 +17,8 @@
 <body>
 <header>
     <a class="header-title" href="{{host}}/">Graduates Platform</a>
-    <form class="header-search" onsubmit="return search()">
-        <input class="search-input" type="text" placeholder="Поиск" id="preGraduateName" name="preGraduateName">
+    <form class="header-search" action="{{host}}" method="GET">
+        <input class="search-input" type="text" placeholder="Поиск" name="preGraduateName">
         <button class="search-submit" type="submit">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff"
                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
@@ -38,19 +38,20 @@
             </div>
             <div class="card-info">
                 <div class="nickname-container">
+                    <span class="country"><img class="country" src="{{host}}/img/country/{{country}}.png" alt="{{country}}"></span>
                     <span class="nickname">{{name}}</span>
                     <span class="server">#{{server}}</span>
                 </div>
                 <div class="card-info-container">
                     <div class="champions">
                         {{#champions}}
-                            <img src="{{host}}/img/champions/{{.}}.png" alt="{{.}}">
+                            <img src="{{host}}/img/champions/squares/{{.}}.png" alt="{{.}}">
                         {{/champions}}
                     </div>
                     <div class="rank">
                         <img class="rank-img" src="{{host}}/img/rank/{{finalRank}}.png" alt="{{finalRank}}"
                              title="{{finalRank}}">
-                        <p class="label rank-description">{{finalRank}} {{finalDivision}} {{finalLP}}</p>
+                        <p class="label rank-description">{{finalRank}} {{finalDivision}} {{finalLP}}lp</p>
                     </div>
                 </div>
 
@@ -96,7 +97,6 @@
         <p class="contact-email">example@email.com</p>
     </div>
 </footer>
-<script src="{{host}}/scripts/MenuSearch.js"></script>
 <!-- Bootsrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
         integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"

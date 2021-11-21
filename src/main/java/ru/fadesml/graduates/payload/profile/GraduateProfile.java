@@ -25,7 +25,6 @@ public class GraduateProfile {
     private String fullName;
     private String email;
     private String country;
-    private String city;
     private String studentFeedback;
     private String coachFeedback;
     private String opgg;
@@ -57,7 +56,6 @@ public class GraduateProfile {
         this.fullName = graduate.getFullName();
         this.email = graduate.getEmail();
         this.country = graduate.getCountry();
-        this.city = graduate.getCity();
         this.studentFeedback = graduate.getStudentFeedback();
         this.coachFeedback = graduate.getCoachFeedback();
         this.opgg = graduate.getOpgg();

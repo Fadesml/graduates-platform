@@ -19,14 +19,28 @@ repositories {
 }
 
 dependencies {
+    //libraries
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-mustache'
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    compileOnly 'org.projectlombok:lombok'
-    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    implementation 'javax.validation:validation-api:2.0.1.Final'
+    implementation 'org.mapstruct:mapstruct:1.4.2.Final'
+
+    //database connectors
     runtimeOnly 'mysql:mysql-connector-java'
+
+    //plugins and utils
+    compileOnly 'org.projectlombok:lombok'
+
+    //annotation processors
     annotationProcessor 'org.projectlombok:lombok'
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.4.2.Final'
+
+    //testing tools
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    //development tools
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
 }
 
 
