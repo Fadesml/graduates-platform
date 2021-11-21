@@ -52,7 +52,7 @@ class ProfileServiceImpl implements ProfileService {
 
     @Override
     public List<GraduateShortPreview> getGraduatesShortPreview(int page, int size, String preGraduateName) {
-        List<Graduate> graduates = graduateRepository.findAll();
+        List<Graduate> graduates = graduateRepository.findAll(PageRequest.of(page, size)).toList();
         if (preGraduateName != null) {
             graduates = graduates.stream()
                     .filter(item -> item.getName().trim().toLowerCase()

@@ -112,7 +112,6 @@
     padding: 15px;
     border: 2px solid #C28F2C;
     border-radius: 3px;
-    margin-bottom: 10px;
     margin: 13px;
 }
 
@@ -120,7 +119,8 @@
 
 
 .progress-bar-vertical {
-    width: 12%;
+    width: 8%;
+    background-color: #dcdedf;
     min-height: 100%;
     margin-right: 20px;
     float: left;
@@ -139,11 +139,17 @@
     -webkit-transition: height 0.6s ease;
     -o-transition: height 0.6s ease;
     transition: height 0.6s ease;
+    background: #5383e8;
+}
+
+.sr-only {
+    text-shadow: 0 0 10px #fff;
 }
 
 .rank-text {
     padding-left: 10px;
     margin-left: 5px;
+    width: 82%;
 }
 
 .rank-title {
@@ -182,4 +188,8 @@ img.plates-item {
     margin-top: 2%;
     margin-left: 8%;
     margin-right: 8%;
+}
+
+.country-flag {
+    margin-top: -5px;
 }
