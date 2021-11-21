@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import ru.fadesml.graduates.config.AppConfig;
 import ru.fadesml.graduates.exception.NotFoundException;
+import ru.fadesml.graduates.payload.GraduatePreviewPage;
 import ru.fadesml.graduates.payload.GraduateShortPreview;
 import ru.fadesml.graduates.service.ProfileService;
 
@@ -24,14 +25,15 @@ public class MainController {
                               @RequestParam(required = false, defaultValue = "12") Integer size,
                               @RequestParam(required = false) String preGraduateName,
                               Model model) {
-        List<GraduateShortPreview> graduates = profileService.getGraduatesShortPreview(page, size, preGraduateName);
+        GraduatePreviewPage previewPage = profileService.getGraduatesShortPreview(page, size, preGraduateName);
 
         model.addAttribute("host", appConfig.getHost());
 
-        if (graduates.isEmpty()) {
+        if (previewPage.getGraduates().isEmpty()) {
             throw new NotFoundException("Graduates not found!");
         }
-        model.addAttribute("graduates", graduates);
+
+        model.addAttribute("graduates", page);
 
         return "main";
     }
